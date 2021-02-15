@@ -14,7 +14,6 @@ import SignIn from '../SignIn/SignIn.js';
 // initialize firebase
 firebase.initializeApp(firebaseConfig);
 
-// App component
 function App() {
   useAuthState(firebase.auth());
 
