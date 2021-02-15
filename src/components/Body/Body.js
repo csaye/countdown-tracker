@@ -1,7 +1,9 @@
+import CountdownList from '../CountdownList/CountdownList.js';
+
 function Body() {
   return (
     <div className="Body">
-      <p>Body</p>
+      <CountdownList />
     </div>
   )
 }
