@@ -4,19 +4,24 @@ import firebase from 'firebase/app';
 
 function MakeCountdown() {
   const [title, setTitle] = useState('');
-  const [endTime, setEndTime] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [endTime, setEndTime] = useState('');
 
   async function addCountdown(e) {
     e.preventDefault();
     const endDateTime = new Date(endDate + ' ' + endTime);
     const uid = firebase.auth().currentUser.uid;
     const countdownsRef = firebase.firestore().collection('countdowns');
+    // add countdown
     await countdownsRef.add({
       endDateTime,
       title,
       uid
     });
+    // reset inputs
+    setTitle('');
+    setEndDate('');
+    setEndTime('');
   }
 
   return (
@@ -37,6 +42,7 @@ function MakeCountdown() {
         />
         <input
         type="time"
+        step="1"
         value={endTime}
         onChange={e => setEndTime(e.target.value)}
         required

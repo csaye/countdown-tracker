@@ -1,0 +1,10 @@
+.Countdown {
+  background-color: #efefef;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.Countdown .time-num {
+  font-size: 24px;
+}
