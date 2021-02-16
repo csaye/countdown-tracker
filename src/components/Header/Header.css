@@ -1,0 +1,23 @@
+.Header {
+  background-color: #efefef;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+}
+
+.Header h1 {
+  margin: 0;
+}
+
+.Header img {
+  height: 48px;
+  margin: 0 10px;
+  border-radius: 24px;
+}
+
+.Header .authed-items {
+  display: flex;
+  align-items: center;
+}

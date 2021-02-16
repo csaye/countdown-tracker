@@ -1,3 +1,5 @@
+import './Header.css';
+
 import firebase from 'firebase/app';
 
 function Header() {
@@ -11,7 +13,11 @@ function Header() {
       <h1>Countdown Tracker</h1>
       {
         firebase.auth().currentUser &&
-        <button onClick={signOut}>Sign Out</button>
+        <div className="authed-items">
+          <p>Signed in as {firebase.auth().currentUser.displayName}</p>
+          <img src={firebase.auth().currentUser.photoURL} />
+          <button onClick={signOut}>Sign Out</button>
+        </div>
       }
     </div>
   )
