@@ -1,3 +1,5 @@
+import './MakeCountdown.css';
+
 import React, { useState } from 'react';
 
 import firebase from 'firebase/app';
@@ -26,7 +28,7 @@ function MakeCountdown() {
 
   return (
     <div className="MakeCountdown">
-      <p>Make Countdown</p>
+      <p>New Countdown</p>
       <form onSubmit={addCountdown}>
         <input
         type="text"

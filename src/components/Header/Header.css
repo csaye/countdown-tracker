@@ -1,4 +1,6 @@
 .Header {
+  position: sticky;
+  top: 0;
   background-color: #efefef;
   padding: 10px;
   display: flex;

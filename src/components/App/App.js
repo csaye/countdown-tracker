@@ -19,12 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <Header />
-      </header>
-      <section>
-        { firebase.auth().currentUser ? <Body /> : <SignIn /> }
-      </section>
+      <Header />
+      { firebase.auth().currentUser ? <Body /> : <SignIn /> }
     </div>
   );
 }
