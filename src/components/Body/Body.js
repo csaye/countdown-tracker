@@ -1,3 +1,5 @@
+import './Body.css';
+
 import MakeCountdown from '../MakeCountdown/MakeCountdown.js';
 import CountdownList from '../CountdownList/CountdownList.js';
 

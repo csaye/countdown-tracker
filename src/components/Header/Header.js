@@ -14,7 +14,7 @@ function Header() {
       {
         firebase.auth().currentUser &&
         <div className="authed-items">
-          <p>Signed in as {firebase.auth().currentUser.displayName}</p>
+          <p className="signed-in-as">Signed in as {firebase.auth().currentUser.displayName}</p>
           <img src={firebase.auth().currentUser.photoURL} />
           <button onClick={signOut}>Sign Out</button>
         </div>

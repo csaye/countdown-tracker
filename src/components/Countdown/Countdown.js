@@ -21,6 +21,16 @@ function Countdown(props) {
   }
 
   useEffect(() => {
+    // const delayMillis = 1000 - new Date().getMilliseconds() - 100;
+    // let interval;
+    //
+    // setTimeout(() => {
+    //   setTimeLeft(endDate - new Date());
+    // }, delayMillis);
+    // setTimeout(() => {
+    //   interval = setInterval(() => setTimeLeft(endDate - new Date()), 1000);
+    // }, delayMillis);
+
     // update time left every second
     const interval = setInterval(() => {
       setTimeLeft(endDate - new Date());
@@ -31,13 +41,17 @@ function Countdown(props) {
   return (
     <div className="Countdown">
       <h1>{title}</h1>
-      <p>{endDate.toDateString() + ', ' + endDate.toLocaleTimeString()}</p>
-      <p>
-        <span className="time-num">{Math.floor(timeLeft / DAY_MS)}</span>d
-        <span className="time-num">{Math.floor((timeLeft % DAY_MS) / HOUR_MS)}</span>h
-        <span className="time-num">{Math.floor(((timeLeft % DAY_MS) % HOUR_MS) / MIN_MS)}</span>m
-        <span className="time-num">{Math.floor((((timeLeft % DAY_MS) % HOUR_MS) % MIN_MS) / SEC_MS)}</span>s
-      </p>
+      <p className="end-date">{endDate.toDateString() + ', ' + endDate.toLocaleTimeString()}</p>
+      {
+        timeLeft > 0 ?
+        <p className="time-left">
+          <span className="time-num">{Math.floor(timeLeft / DAY_MS)}</span>d
+          <span className="time-num">{Math.floor((timeLeft % DAY_MS) / HOUR_MS)}</span>h
+          <span className="time-num">{Math.floor(((timeLeft % DAY_MS) % HOUR_MS) / MIN_MS)}</span>m
+          <span className="time-num">{Math.floor((((timeLeft % DAY_MS) % HOUR_MS) % MIN_MS) / SEC_MS)}</span>s
+        </p> :
+        <p className="time-left">Countdown complete</p>
+      }
       <button onClick={deleteCountdown}>Delete</button>
     </div>
   );
