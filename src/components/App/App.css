@@ -3,6 +3,7 @@
   padding: 10px;
   border-radius: 10px;
   width: 100%;
+  min-height: 147px;
 }
 
 @media (min-width: 768px) {
