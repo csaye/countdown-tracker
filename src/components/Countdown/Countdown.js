@@ -39,7 +39,7 @@ function Countdown(props) {
   }, []);
 
   return (
-    <div className="Countdown">
+    <div className="Countdown card">
       <h1>{title}</h1>
       <p className="end-date">{endDate.toDateString() + ', ' + endDate.toLocaleTimeString()}</p>
       {

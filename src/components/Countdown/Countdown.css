@@ -1,9 +1,5 @@
 .Countdown {
   background-color: #2196f3;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  width: 100%;
 }
 
 .Countdown h1 {
@@ -20,10 +16,4 @@
 
 .Countdown .time-num {
   font-size: 32px;
-}
-
-@media (min-width: 768px) {
-  .Countdown {
-    width: calc(50% - 40px);
-  }
 }

@@ -1,10 +1,10 @@
-import './MakeCountdown.css';
+import './NewCountdown.css';
 
 import React, { useState } from 'react';
 
 import firebase from 'firebase/app';
 
-function MakeCountdown() {
+function NewCountdown() {
   const [title, setTitle] = useState('');
   const [endDate, setEndDate] = useState('');
   const [endTime, setEndTime] = useState('');
@@ -27,7 +27,7 @@ function MakeCountdown() {
   }
 
   return (
-    <div className="MakeCountdown">
+    <div className="NewCountdown card">
       <p>New Countdown</p>
       <form onSubmit={addCountdown}>
         <input
@@ -55,4 +55,4 @@ function MakeCountdown() {
   )
 }
 
-export default MakeCountdown;
+export default NewCountdown;

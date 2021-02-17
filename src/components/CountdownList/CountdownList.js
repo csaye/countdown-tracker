@@ -4,6 +4,7 @@ import firebase from 'firebase/app';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import Countdown from '../Countdown/Countdown.js';
+import NewCountdown from '../NewCountdown/NewCountdown.js';
 
 function CountdownList() {
   const countdownsRef = firebase.firestore().collection('countdowns');
@@ -24,10 +25,9 @@ function CountdownList() {
   return (
     <div className="CountdownList">
       {
-        countdowns.length > 0 ?
-        countdowns.map(c => <Countdown key={c.id} data={c} />) :
-        <p>No countdowns yet</p>
+        countdowns.map(c => <Countdown key={c.id} data={c} />)
       }
+      <NewCountdown />
     </div>
   );
 }
