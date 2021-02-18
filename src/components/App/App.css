@@ -4,6 +4,15 @@
   background-size: cover;
 }
 
+.App .background-img {
+  z-index: -10;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .App .change-background {
   position: absolute;
   right: 10px;

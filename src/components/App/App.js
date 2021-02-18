@@ -37,9 +37,8 @@ function App() {
   const [backgroundUrl, setBackgroundUrl] = useState(getBackgroundUrl());
 
   return (
-    <div className="App" style={{
-      backgroundImage: 'url(\'' + backgroundUrl + '\')'
-    }}>
+    <div className="App">
+      {<img className="background-img" src={backgroundUrl} />}
       <Header />
       { firebase.auth().currentUser ? <Body /> : <SignIn /> }
       <button
