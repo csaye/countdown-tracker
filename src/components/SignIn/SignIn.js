@@ -1,3 +1,5 @@
+import './SignIn.css';
+
 import firebase from 'firebase/app';
 
 function SignIn() {
@@ -9,6 +11,7 @@ function SignIn() {
 
   return (
     <div className="SignIn">
+      <u>Countdown Tracker</u>
       <button onClick={signInWithGoogle}>Sign in with Google</button>
     </div>
   )
