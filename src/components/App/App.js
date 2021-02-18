@@ -1,5 +1,7 @@
 import './App.css';
 
+import React, { useState } from 'react';
+
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
@@ -17,8 +19,12 @@ firebase.initializeApp(firebaseConfig);
 function App() {
   useAuthState(firebase.auth());
 
+  const [backgroundUrl, setBackgroundUrl] = useState('');
+
   return (
-    <div className="App">
+    <div className="App" style={{
+      backgroundImage: 'url(\'' + backgroundUrl + '\')'
+    }}>
       <Header />
       { firebase.auth().currentUser ? <Body /> : <SignIn /> }
     </div>

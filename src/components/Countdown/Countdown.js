@@ -52,7 +52,7 @@ function Countdown(props) {
         </p> :
         <p className="time-left">Countdown complete</p>
       }
-      <button onClick={deleteCountdown}>Delete</button>
+      <button onClick={deleteCountdown}>✖</button>
     </div>
   );
 }
