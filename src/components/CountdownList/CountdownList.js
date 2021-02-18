@@ -17,7 +17,7 @@ function CountdownList() {
   if (!countdowns) {
     return (
       <div className="CountdownList">
-        <p>Retrieving countdowns...</p>
+        <p className="retrieving-countdowns">Retrieving countdowns...</p>
       </div>
     );
   }

@@ -35,7 +35,7 @@ button:hover {
   border-radius: 10px;
   width: 100%;
   min-height: 135px;
-  /* box-shadow: 0 2px 5px #555; */
+  box-shadow: 0 1px 3px #333;
   transition: 0.5s;
 }
 

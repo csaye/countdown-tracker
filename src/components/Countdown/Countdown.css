@@ -1,7 +1,5 @@
 .Countdown {
-  /* background-color: #2196f3; */
-  background: rgb(23,138,230);
-  background: linear-gradient(315deg, rgba(23,138,230,1) 0%, rgba(33,150,243,1) 50%, rgba(43,161,255,1) 100%);
+  background-color: #fff;
 }
 
 .Countdown h1 {

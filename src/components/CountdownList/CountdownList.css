@@ -3,3 +3,11 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.CountdownList .retrieving-countdowns {
+  background: rgb(229,229,229);
+  background: linear-gradient(315deg, rgba(229,229,229,1) 0%, rgba(239,239,239,1) 50%, rgba(249,249,249,1) 100%);
+  box-shadow: 0 1px 3px #333;
+  border-radius: 10px;
+  padding: 5px;
+}
