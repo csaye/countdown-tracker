@@ -3,3 +3,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.App .change-background {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
