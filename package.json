@@ -1,5 +1,6 @@
 {
   "name": "countdown-tracker",
+  "homepage": "https://cooper.computer/countdown-tracker/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
