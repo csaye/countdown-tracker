@@ -39,8 +39,10 @@ function NewCountdown() {
           <p>New Countdown</p>
           <form onSubmit={addCountdown}>
             <input
+            className="title-input"
             type="text"
             value={title}
+            placeholder="Title"
             onChange={e => setTitle(e.target.value)}
             required
             />

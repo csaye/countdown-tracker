@@ -17,6 +17,22 @@
   transition: 0.3s;
 }
 
+.NewCountdown p {
+  margin-top: -10px!important;
+}
+
+.NewCountdown form input {
+  width: 150px;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+  border: 2px solid #333;
+}
+
+.NewCountdown form .title-input {
+  padding: 2px 0;
+}
+
 .NewCountdown .plus-button:hover {
   transform: scale(1.2);
 }
