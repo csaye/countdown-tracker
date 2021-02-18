@@ -17,4 +17,14 @@
   position: absolute;
   right: 10px;
   bottom: 10px;
+  font-weight: bold;
+  font-size: 48px;
+  width: 50px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.App .change-background p {
+  margin: -10px 0 -1px 0;
 }

@@ -44,7 +44,9 @@ function App() {
       <button
       className="change-background"
       onClick={() => setBackgroundUrl(getBackgroundUrl())}
-      >Change background</button>
+      >
+        <p>↺</p>
+      </button>
     </div>
   );
 }

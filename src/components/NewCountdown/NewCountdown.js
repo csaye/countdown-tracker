@@ -35,7 +35,7 @@ function NewCountdown() {
       {
         open ?
         <div>
-          <button onClick={() => setOpen(false)}>✖</button>
+          <button className="x-button" onClick={() => setOpen(false)}>✖</button>
           <p>New Countdown</p>
           <form onSubmit={addCountdown}>
             <input

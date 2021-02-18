@@ -1,5 +1,9 @@
 /* general */
 
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -13,7 +17,14 @@ button {
 }
 
 button:hover {
-  background-color: #ddd;
+  background-color: #ccc;
+}
+
+/* x button */
+
+.x-button {
+  padding: 0;
+  width: 20px;
 }
 
 /* card */
@@ -23,7 +34,7 @@ button:hover {
   padding: 10px;
   border-radius: 10px;
   width: 100%;
-  min-height: 147px;
+  min-height: 135px;
   /* box-shadow: 0 2px 5px #555; */
   transition: 0.5s;
 }
