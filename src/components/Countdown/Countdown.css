@@ -1,5 +1,7 @@
 .Countdown {
-  background-color: #2196f3;
+  /* background-color: #2196f3; */
+  background: rgb(23,138,230);
+  background: linear-gradient(315deg, rgba(23,138,230,1) 0%, rgba(33,150,243,1) 50%, rgba(43,161,255,1) 100%);
 }
 
 .Countdown h1 {
@@ -13,6 +15,18 @@
 .Countdown .time-left {
   font-size: 16px;
   margin: 10px 0;
+  background: rgb(229,229,229);
+  background: linear-gradient(315deg, rgba(229,229,229,1) 0%, rgba(239,239,239,1) 50%, rgba(249,249,249,1) 100%);
+  box-shadow: 0 1px 3px #333;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 0 5px;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.Countdown .time-left:hover {
+  transform: scale(1.05);
 }
 
 .Countdown .time-num {
