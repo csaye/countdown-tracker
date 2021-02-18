@@ -15,6 +15,7 @@ function Countdown(props) {
   const endDate = endDateTime.toDate();
 
   const [timeLeft, setTimeLeft] = useState(endDate - new Date());
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   async function deleteCountdown() {
     await firebase.firestore().collection('countdowns').doc(id).delete();
@@ -52,7 +53,15 @@ function Countdown(props) {
         </p> :
         <p className="time-left">Countdown complete</p>
       }
-      <button className="x-button" onClick={deleteCountdown}>✖</button>
+      {
+        confirmDelete ?
+        <div className="confirm-delete">
+          Delete countdown?
+          <button onClick={() => setConfirmDelete(false)}>Cancel</button>
+          <button onClick={deleteCountdown}>Delete</button>
+        </div> :
+        <button className="x-button" onClick={() => setConfirmDelete(true)}>✖</button>
+      }
     </div>
   );
 }

@@ -18,3 +18,8 @@
 .Countdown .time-num {
   font-size: 32px;
 }
+
+.Countdown .confirm-delete button {
+  margin: 0 2px;
+  height: 20px;
+}
