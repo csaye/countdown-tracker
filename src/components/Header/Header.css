@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: space-between;
   height: 48px;
+  box-shadow: 0 2px 5px #999;
 }
 
 .Header h1 {
