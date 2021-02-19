@@ -1,0 +1,29 @@
+.Background .background-img {
+  z-index: -10;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Background .change-background {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-weight: bold;
+  font-size: 48px;
+  width: 50px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.Background .change-background:hover {
+  transform: scale(1.1);
+}
+
+.Background .change-background p {
+  margin: -10px 0 -1px 0;
+}
