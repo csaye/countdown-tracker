@@ -54,7 +54,6 @@ function NewCountdown() {
             />
             <input
             type="time"
-            step="1"
             value={endTime}
             onChange={e => setEndTime(e.target.value)}
             required

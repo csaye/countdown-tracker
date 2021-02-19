@@ -51,7 +51,7 @@ function Countdown(props) {
           <span className="time-num">{Math.floor(((timeLeft % DAY_MS) % HOUR_MS) / MIN_MS)}</span>m
           <span className="time-num">{Math.floor((((timeLeft % DAY_MS) % HOUR_MS) % MIN_MS) / SEC_MS)}</span>s
         </p> :
-        <p className="time-left">Countdown complete</p>
+        <p className="time-left countdown-complete">Countdown complete</p>
       }
       {
         confirmDelete ?
