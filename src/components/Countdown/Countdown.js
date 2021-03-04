@@ -45,6 +45,37 @@ function Countdown(props) {
     return () => clearInterval(interval);
   }, []);
 
+  function formatDate(d) {
+    let year = d.getFullYear().toString();
+    let month = (d.getMonth() + 1).toString();
+    let day = d.getDate().toString();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
+  function formatTime(d) {
+    let hour = d.getHours().toString();
+    let minute = d.getMinutes().toString();
+    let second = d.getSeconds().toString();
+
+    if (hour.length < 2) hour = '0' + hour;
+    if (minute.length < 2) minute = '0' + minute;
+    if (second.length < 2) second = '0' + second;
+
+    return [hour, minute, second].join(':');
+  }
+
+  function startEditing() {
+    // reset form parameters
+    setNewTitle(title);
+    setNewEndDate(formatDate(endDate));
+    setNewEndTime(formatTime(endDate));
+    setEditing(true);
+  }
+
   async function updateCountdown() {
     const newEndDateTime = new Date(newEndDate + ' ' + newEndTime);
     await firebase.firestore().collection('countdowns').doc(id).update({
