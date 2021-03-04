@@ -17,38 +17,6 @@
   transition: 0.3s;
 }
 
-.NewCountdown p {
-  margin-top: -10px!important;
-}
-
-.NewCountdown form input {
-  width: 150px;
-  padding-left: 0;
-  padding-right: 0;
-  border-radius: 0;
-  border: 2px solid #333;
-}
-
-.NewCountdown form .title-input {
-  padding: 2px 0;
-}
-
 .NewCountdown .plus-button:hover {
   transform: scale(1.2);
-}
-
-.NewCountdown p {
-  margin: 0 0 5px 0;
-  text-align: center;
-}
-
-.NewCountdown form {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.NewCountdown form button {
-  margin: 5px 0 0 0;
 }
