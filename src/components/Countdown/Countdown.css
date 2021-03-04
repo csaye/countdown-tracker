@@ -40,3 +40,7 @@
   margin: 0 2px;
   height: 20px;
 }
+
+.Countdown .edit-button {
+  float: right;
+}

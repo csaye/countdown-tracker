@@ -14,6 +14,12 @@ function Countdown(props) {
   const { title, id, endDateTime } = props.data;
   const endDate = endDateTime.toDate();
 
+  const [editing, setEditing] = useState(false);
+
+  const [newTitle, setNewTitle] = useState('');
+  const [newEndDate, setNewEndDate] = useState('');
+  const [newEndTime, setNewEndTime] = useState('');
+
   const [timeLeft, setTimeLeft] = useState(endDate - new Date());
   const [confirmDelete, setConfirmDelete] = useState(false);
 
@@ -39,28 +45,74 @@ function Countdown(props) {
     return () => clearInterval(interval);
   }, []);
 
+  async function updateCountdown() {
+    const newEndDateTime = new Date(newEndDate + ' ' + newEndTime);
+    await firebase.firestore().collection('countdowns').doc(id).update({
+      title: newTitle,
+      endDateTime: newEndDateTime
+    });
+  }
+
   return (
     <div className="Countdown card">
-      <h1>{title}</h1>
-      <p className="end-date">{endDate.toDateString() + ', ' + endDate.toLocaleTimeString()}</p>
       {
-        timeLeft > 0 ?
-        <p className="time-left">
-          <span className="time-num">{Math.floor(timeLeft / DAY_MS)}</span>d
-          <span className="time-num">{Math.floor((timeLeft % DAY_MS) / HOUR_MS)}</span>h
-          <span className="time-num">{Math.floor(((timeLeft % DAY_MS) % HOUR_MS) / MIN_MS)}</span>m
-          <span className="time-num">{Math.floor((((timeLeft % DAY_MS) % HOUR_MS) % MIN_MS) / SEC_MS)}</span>s
-        </p> :
-        <p className="time-left countdown-complete">Countdown complete</p>
+        editing ?
+        <>
+          <button className="x-button" onClick={() => setEditing(false)}>✖</button>
+          <p className="center-form-title">Editing Countdown</p>
+          <form onSubmit={updateCountdown} className="center-form">
+            <input
+            className="title-input"
+            type="text"
+            value={newTitle}
+            placeholder="Title"
+            onChange={e => setNewTitle(e.target.value)}
+            required
+            />
+            <input
+            type="date"
+            value={newEndDate}
+            onChange={e => setNewEndDate(e.target.value)}
+            required
+            />
+            <input
+            type="time"
+            value={newEndTime}
+            onChange={e => setNewEndTime(e.target.value)}
+            required
+            />
+            <button type="submit">Create</button>
+          </form>
+        </> :
+        <>
+          <h1>{title}</h1>
+          <p className="end-date">{endDate.toDateString() + ', ' + endDate.toLocaleTimeString()}</p>
+          {
+            timeLeft > 0 ?
+            <p className="time-left">
+              <span className="time-num">{Math.floor(timeLeft / DAY_MS)}</span>d
+              <span className="time-num">{Math.floor((timeLeft % DAY_MS) / HOUR_MS)}</span>h
+              <span className="time-num">{Math.floor(((timeLeft % DAY_MS) % HOUR_MS) / MIN_MS)}</span>m
+              <span className="time-num">{Math.floor((((timeLeft % DAY_MS) % HOUR_MS) % MIN_MS) / SEC_MS)}</span>s
+            </p> :
+            <p className="time-left countdown-complete">Countdown complete</p>
+          }
+          { !confirmDelete && <button className="edit-button" onClick={startEditing}>Edit</button> }
+        </>
       }
       {
-        confirmDelete ?
-        <div className="confirm-delete">
-          Delete countdown?
-          <button onClick={() => setConfirmDelete(false)}>Cancel</button>
-          <button onClick={deleteCountdown}>Delete</button>
-        </div> :
-        <button className="x-button" onClick={() => setConfirmDelete(true)}>✖</button>
+        !editing &&
+        <>
+          {
+            confirmDelete ?
+            <div className="confirm-delete">
+              Delete countdown?
+              <button onClick={() => setConfirmDelete(false)}>Cancel</button>
+              <button onClick={deleteCountdown}>Delete</button>
+            </div> :
+            <button onClick={() => setConfirmDelete(true)}>Delete</button>
+          }
+        </>
       }
     </div>
   );
