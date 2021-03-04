@@ -39,11 +39,12 @@ function Countdown(props) {
     // }, delayMillis);
 
     // update time left every second
+    setTimeLeft(endDate - new Date());
     const interval = setInterval(() => {
       setTimeLeft(endDate - new Date());
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [endDateTime]);
 
   function formatDate(d) {
     let year = d.getFullYear().toString();
@@ -59,13 +60,11 @@ function Countdown(props) {
   function formatTime(d) {
     let hour = d.getHours().toString();
     let minute = d.getMinutes().toString();
-    let second = d.getSeconds().toString();
 
     if (hour.length < 2) hour = '0' + hour;
     if (minute.length < 2) minute = '0' + minute;
-    if (second.length < 2) second = '0' + second;
 
-    return [hour, minute, second].join(':');
+    return [hour, minute].join(':');
   }
 
   function startEditing() {
@@ -76,7 +75,9 @@ function Countdown(props) {
     setEditing(true);
   }
 
-  async function updateCountdown() {
+  async function updateCountdown(e) {
+    e.preventDefault();
+    setEditing(false);
     const newEndDateTime = new Date(newEndDate + ' ' + newEndTime);
     await firebase.firestore().collection('countdowns').doc(id).update({
       title: newTitle,
@@ -112,7 +113,7 @@ function Countdown(props) {
             onChange={e => setNewEndTime(e.target.value)}
             required
             />
-            <button type="submit">Create</button>
+            <button type="submit">Update</button>
           </form>
         </> :
         <>
