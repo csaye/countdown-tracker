@@ -28,21 +28,11 @@ function Countdown(props) {
   }
 
   useEffect(() => {
-    // const delayMillis = 1000 - new Date().getMilliseconds() - 100;
-    // let interval;
-    //
-    // setTimeout(() => {
-    //   setTimeLeft(endDate - new Date());
-    // }, delayMillis);
-    // setTimeout(() => {
-    //   interval = setInterval(() => setTimeLeft(endDate - new Date()), 1000);
-    // }, delayMillis);
-
-    // update time left every second
+    // update time left every tenth of a second
     setTimeLeft(endDate - new Date());
     const interval = setInterval(() => {
       setTimeLeft(endDate - new Date());
-    }, 1000);
+    }, 100);
     return () => clearInterval(interval);
   }, [endDateTime]);
 
