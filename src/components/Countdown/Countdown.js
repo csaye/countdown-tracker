@@ -69,7 +69,8 @@ function Countdown(props) {
     e.preventDefault();
     setEditing(false);
     const newEndDateTime = new Date(newEndDate + ' ' + newEndTime);
-    await firebase.firestore().collection('countdowns').doc(id).update({
+    const uid = firebase.auth().currentUser.uid;
+    await firebase.firestore().collection(uid).doc(id).update({
       title: newTitle,
       endDateTime: newEndDateTime
     });

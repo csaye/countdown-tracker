@@ -7,10 +7,9 @@ import Countdown from '../Countdown/Countdown.js';
 import NewCountdown from '../NewCountdown/NewCountdown.js';
 
 function CountdownList() {
-  const countdownsRef = firebase.firestore().collection('countdowns');
-  const countdownsQuery = countdownsRef
-  .where('uid', '==', firebase.auth().currentUser.uid)
-  .orderBy('endDateTime');
+  const uid = firebase.auth().currentUser.uid;
+  const countdownsRef = firebase.firestore().collection(uid);
+  const countdownsQuery = countdownsRef.orderBy('endDateTime');
   const [countdowns] = useCollectionData(countdownsQuery, {idField: 'id'});
 
   // if no countdowns yet, return loading
