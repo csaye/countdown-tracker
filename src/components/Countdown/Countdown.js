@@ -14,6 +14,9 @@ function Countdown(props) {
   const { title, id, endDateTime } = props.data;
   const endDate = endDateTime.toDate();
 
+  const uid = firebase.auth().currentUser.uid;
+  const countdownsRef = firebase.firestore().collection(uid);
+
   const [editing, setEditing] = useState(false);
 
   const [newTitle, setNewTitle] = useState('');
@@ -24,7 +27,7 @@ function Countdown(props) {
   const [confirmDelete, setConfirmDelete] = useState(false);
 
   async function deleteCountdown() {
-    await firebase.firestore().collection('countdowns').doc(id).delete();
+    await countdownsRef.doc(id).delete();
   }
 
   useEffect(() => {
@@ -70,7 +73,7 @@ function Countdown(props) {
     setEditing(false);
     const newEndDateTime = new Date(newEndDate + ' ' + newEndTime);
     const uid = firebase.auth().currentUser.uid;
-    await firebase.firestore().collection(uid).doc(id).update({
+    await countdownsRef.doc(id).update({
       title: newTitle,
       endDateTime: newEndDateTime
     });
